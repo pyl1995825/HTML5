@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>five-pointed star</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		window.onload = function() {
+			var canvas = document.getElementById('canvas');
+
+			canvas.width = 600;
+			canvas.height = 600;
+			var context = canvas.getContext('2d');
+
+			drawStar(context, 100, 200, 300, 300);
+			
+		}
+
+		// 生成一个五角星，r --> 五角星内圆半径 R --> 五角星外圆半径 
+		function drawStar(cxt, r, R, x, y) {
+			cxt.beginPath();
+			for(var i = 0; i < 5; i++) {
+				cxt.lineTo(Math.cos( (18 + i*72)/180 * Math.PI) * R + x, 
+							   -Math.sin( (18 + i*72)/180 * Math.PI) * R + y);
+				cxt.lineTo(Math.cos( (54 + i*72)/180 * Math.PI) * r + x, 
+							   -Math.sin( (54 + i*72)/180 * Math.PI) * r + y);
+			}
+			cxt.closePath();
+			cxt.lineWidth = 10;
+			cxt.stroke();
+		}
+	</script>
+</body>
+</html>

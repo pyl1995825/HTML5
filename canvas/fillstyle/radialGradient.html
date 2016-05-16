@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LinearGradient(线性渐变)</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			min-height: 100vh;
+		}	
+		#canvas {
+			margin: auto;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		window.onload = function() {
+			var canvas = document.getElementById('canvas');
+
+			canvas.width = 600;
+			canvas.height = 600;
+			var context = canvas.getContext('2d');
+			
+			// 发生径向渐变 
+			var linearGrad = context.createRadialGradient(300, 300, 100, 300, 300, 500);
+			linearGrad.addColorStop(0.0, "#fff");
+			linearGrad.addColorStop(1.0, '#000');
+			context.fillStyle = linearGrad;
+			context.fillRect(0, 0, 600, 600);
+		}
+	</script>
+</body>
+</html>
