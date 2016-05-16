@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>createPatter</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		// createPattern 第一个参数可以传一个image对象 也可以传一个canvas画布
+		window.onload = function() {
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			canvas.width = 600;
+			canvas.heightt = 600;
+
+			var backgroundImage = new Image();
+			backgroundImage.src = '';
+			backgroundImage.onload = function() {
+				var pattern = context.createPattern(backgroundImage, 'repeat');
+				context.fillStyle = pattern;
+				context.fillRect(0, 0, 600, 600);
+
+			}
+		}
+	</script>
+</body>
+</html>
